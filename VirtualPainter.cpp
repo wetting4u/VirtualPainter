@@ -11,13 +11,11 @@ using namespace std;
 Mat img;
 vector<vector<int>> newPoints;
 
-//choose the object(the marker cap for instance) color want to be detected
 vector<vector<int>> myColors{ {81,131,0,123,255,255}, //blue
-    {155,152,156,179,255,255} }; //red
+								{163,140,170,177,255,255} }; //red
 
-//the colors of tracks used to be drawn on canvas
 vector<Scalar> myColorValues{ {0,0,255}, //blue
-    {255,0,0} }; //red
+								{255,0,0} }; //red
 
 Point getContours(Mat imgDil) {
 
@@ -25,19 +23,17 @@ Point getContours(Mat imgDil) {
 	vector<Vec4i> hierarchy;
 
 	findContours(imgDil, contours, hierarchy, RETR_EXTERNAL, CHAIN_APPROX_SIMPLE);
-
+	//drawContours(img, contours, -1, Scalar(255, 0, 255), 2);
 	vector<vector<Point>> conPoly(contours.size());
 	vector<Rect> boundRect(contours.size());
 
 	Point myPoint(0,0);
 
-	for (int i = 0;i < contours.size();i++)
+	for (int i = 0; i < contours.size();i++)
 	{
 		int area = contourArea(contours[i]);
 		cout << area << endl;
 
-		vector<vector<Point>> conPoly(contours.size());
-		vector<Rect> boundRect(contours.size());
 		string objectType;
 
 		if (area > 1000)
@@ -47,10 +43,11 @@ Point getContours(Mat imgDil) {
 
 			cout << conPoly[i].size() << endl;
 			boundRect[i] = boundingRect(conPoly[i]);
-
-			int objCor = (int)conPoly[i].size();
+			myPoint.x = boundRect[i].x + boundRect[i].width / 2;
+			myPoint.y = boundRect[i].y;			
 			
 			drawContours(img, conPoly, i, Scalar(255, 0, 255), 2);
+			rectangle(img, boundRect[i].tl(), boundRect[i].br(), Scalar(0, 255, 0), 5);
 		}
 		return myPoint;
 	}
@@ -69,7 +66,6 @@ vector<vector<int>> findColor(Mat img) {
 		inRange(imgHSV, lower, upper, mask);
 		//imshow(to_string(i), mask);
 		Point myPoint = getContours(mask);
-
 		if (myPoint.x != 0 && myPoint.y != 0)
 		{
 			newPoints.push_back({ myPoint.x, myPoint.y, i });
