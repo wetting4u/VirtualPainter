@@ -1,5 +1,6 @@
 # VirtualPainter
 
+```diff
 <font color="green">if you don't konw how to set the IDE for OpenCV with C++ project, PLEASE check the FaceDetection/README.md first ~~~</font>
 <br>
 <br>
