@@ -1,7 +1,6 @@
 # VirtualPainter
 
-```diff
-<font color="green">if you don't konw how to set the IDE for OpenCV with C++ project, PLEASE check the FaceDetection/README.md first ~~~</font>
+***if you don't konw how to set the IDE for OpenCV with C++ project, PLEASE check the FaceDetection/README.md first ~~~
 <br>
 <br>
   1. run ColorPicker.cpp to let the object you choosed present white on window by adjust the Trackbar.
