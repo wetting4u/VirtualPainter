@@ -12,10 +12,10 @@ Mat img;
 vector<vector<int>> newPoints;
 
 vector<vector<int>> myColors{ {81,131,0,123,255,255}, //blue
-								{163,140,170,177,255,255} }; //red
+				{163,140,170,177,255,255} }; //red
 
 vector<Scalar> myColorValues{ {0,0,255}, //blue
-								{255,0,0} }; //red
+				{255,0,0} }; //red
 
 Point getContours(Mat imgDil) {
 
