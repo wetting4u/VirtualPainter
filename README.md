@@ -1,5 +1,8 @@
 # VirtualPainter
 
+*if you don't konw how to set the IDE for OpenCV with C++ project, PLEASE check the FaceDetection/README.md first ~~~
+<br>
+<br>
   1. run ColorPicker.cpp to let the object you choosed present white on window by adjust the Trackbar.
   ![螢幕擷取畫面 (36)](https://user-images.githubusercontent.com/76464072/134405793-5a5af20d-28f4-4997-a10c-ecbf800e26fc.png)
   
